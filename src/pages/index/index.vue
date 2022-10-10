@@ -1,18 +1,25 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png" />
+		<!-- <image class="logo" src="/static/logo.png" /> -->
 		<view class="text-area">
-			<text class="title">{{ title }}</text>
-			<text class="title">{{ count }}</text>
+			<view class="title">{{ title }}</view>
+			<view class="title">{{ count }}</view>
+			<view class="title">{{ useApp.getCount }}</view>
+			<view class="add" @click="onClick">
+				添加
+			</view>
 		</view>
-		<view class="add" @click="onClick">
-			添加
+		<view class="text-area">
+			<view class="title-sass">使用全局的css变量-sass</view>
 		</view>
+
 	</view>
 </template>
 
 <script setup lang="ts">
-	import {storeToRefs} from 'pinia'
+	import {
+		storeToRefs
+	} from 'pinia'
 	import {
 		ref
 	} from 'vue'
@@ -20,16 +27,18 @@
 		useAppStore
 	} from "/@/store/modules/app";
 	const title = ref('Hello Uni App')
-	const appStore = useAppStore();
-	const {count} = storeToRefs(appStore);
-	
-		
-	function onClick(){
-		// appStore.setCount(count+1)
+	const useApp = useAppStore();
+	const {
+		count
+	} = storeToRefs(useApp);
+
+
+	function onClick() {
+		useApp.setCount(useApp.count + 1)
 	}
 </script>
 
-<style>
+<style lang="scss" scoped>
 	.content {
 		display: flex;
 		flex-direction: column;
@@ -37,22 +46,15 @@
 		justify-content: center;
 	}
 
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
 	.text-area {
-		display: flex;
-		justify-content: center;
+		font-size: 36rpx;
 	}
 
 	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
+		color: #000000;
+	}
+
+	.title-sass {
+		color: $uni-color-error;
 	}
 </style>

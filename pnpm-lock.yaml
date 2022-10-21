@@ -18,7 +18,9 @@ specifiers:
   '@dcloudio/uni-quickapp-webview': 3.0.0-alpha-3060420220922001
   '@dcloudio/uni-stacktracey': 3.0.0-alpha-3060420220922001
   '@dcloudio/vite-plugin-uni': 3.0.0-alpha-3060420220922001
+  '@types/lodash-es': ^4.17.6
   '@types/node': ^18.7.23
+  lodash-es: ^4.17.21
   pinia: ^2.0.22
   sass: ^1.55.0
   typescript: ^4.8.3
@@ -39,6 +41,7 @@ dependencies:
   '@dcloudio/uni-mp-toutiao': registry.npmmirror.com/@dcloudio/uni-mp-toutiao/3.0.0-alpha-3060420220922001_vue@3.2.40
   '@dcloudio/uni-mp-weixin': registry.npmmirror.com/@dcloudio/uni-mp-weixin/3.0.0-alpha-3060420220922001_vue@3.2.40
   '@dcloudio/uni-quickapp-webview': registry.npmmirror.com/@dcloudio/uni-quickapp-webview/3.0.0-alpha-3060420220922001_vue@3.2.40
+  lodash-es: registry.npmmirror.com/lodash-es/4.17.21
   pinia: registry.npmmirror.com/pinia/2.0.22_typescript@4.8.4+vue@3.2.40
   vue: registry.npmmirror.com/vue/3.2.40
   vue-i18n: registry.npmmirror.com/vue-i18n/9.2.2_vue@3.2.40
@@ -49,6 +52,7 @@ devDependencies:
   '@dcloudio/uni-cli-shared': registry.npmmirror.com/@dcloudio/uni-cli-shared/3.0.0-alpha-3060420220922001_vue@3.2.40
   '@dcloudio/uni-stacktracey': registry.npmmirror.com/@dcloudio/uni-stacktracey/3.0.0-alpha-3060420220922001
   '@dcloudio/vite-plugin-uni': registry.npmmirror.com/@dcloudio/vite-plugin-uni/3.0.0-alpha-3060420220922001_vite@2.9.15+vue@3.2.40
+  '@types/lodash-es': registry.npmmirror.com/@types/lodash-es/4.17.6
   '@types/node': registry.npmmirror.com/@types/node/18.7.23
   sass: registry.npmmirror.com/sass/1.55.0
   typescript: registry.npmmirror.com/typescript/4.8.4
@@ -1231,6 +1235,20 @@ packages:
     dependencies:
       estree-walker: registry.npmmirror.com/estree-walker/2.0.2
       picomatch: registry.npmmirror.com/picomatch/2.3.1
+
+  registry.npmmirror.com/@types/lodash-es/4.17.6:
+    resolution: {integrity: sha512-R+zTeVUKDdfoRxpAryaQNRKk3105Rrgx2CFRClIgRGaqDTdjsm8h6IYA8ir584W3ePzkZfst5xIgDwYrlh9HLg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/lodash-es/-/lodash-es-4.17.6.tgz}
+    name: '@types/lodash-es'
+    version: 4.17.6
+    dependencies:
+      '@types/lodash': registry.npmmirror.com/@types/lodash/4.14.186
+    dev: true
+
+  registry.npmmirror.com/@types/lodash/4.14.186:
+    resolution: {integrity: sha512-eHcVlLXP0c2FlMPm56ITode2AgLMSa6aJ05JTTbYbI+7EMkCEE5qk2E41d5g2lCVTqRe0GnnRFurmlCsDODrPw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/lodash/-/lodash-4.14.186.tgz}
+    name: '@types/lodash'
+    version: 4.14.186
+    dev: true
 
   registry.npmmirror.com/@types/node/18.7.23:
     resolution: {integrity: sha512-DWNcCHolDq0ZKGizjx2DZjR/PqsYwAcYUJmfMWqtVU2MBMG5Mo+xFZrhGId5r/O5HOuMPyQEcM6KUBp5lBZZBg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/node/-/node-18.7.23.tgz}
@@ -2518,6 +2536,12 @@ packages:
     name: localstorage-polyfill
     version: 1.0.1
     engines: {node: '>=6'}
+    dev: false
+
+  registry.npmmirror.com/lodash-es/4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/lodash-es/-/lodash-es-4.17.21.tgz}
+    name: lodash-es
+    version: 4.17.21
     dev: false
 
   registry.npmmirror.com/lodash.camelcase/4.3.0:

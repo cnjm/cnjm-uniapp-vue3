@@ -17,21 +17,15 @@
 </template>
 
 <script setup lang="ts">
-	import {
-		storeToRefs
-	} from 'pinia'
-	import {
-		ref
-	} from 'vue'
-	import {
-		useAppStore
-	} from "/@/store/modules/app";
+	import { storeToRefs } from 'pinia'
+	import { ref } from 'vue'
+	import { useAppStore } from "/@/store/modules/app";
 	const title = ref('Hello Uni App')
 	const useApp = useAppStore();
-	const {
-		count
-	} = storeToRefs(useApp);
-
+	const { count } = storeToRefs(useApp);
+	const env =
+		import.meta.env
+	console.log("env", env)
 
 	function onClick() {
 		useApp.setCount(useApp.count + 1)

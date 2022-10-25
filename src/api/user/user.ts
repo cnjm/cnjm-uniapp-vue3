@@ -7,7 +7,7 @@ enum Api {
  * @description: 用户登录
  */
 export const loginApi = (data: LoginParams, mode: ErrorMessageMode = "toast") =>
-  defRequest.post<LoginResult>(
+  defRequest.get<LoginResult>(
     { url: Api.Login, data },
     { errorMessageMode: mode }
   );

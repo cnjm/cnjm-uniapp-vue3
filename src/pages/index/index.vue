@@ -6,6 +6,7 @@
       <view class="title">{{ count }}</view>
       <view class="title">{{ useApp.getCount }}</view>
       <view class="add" @click="onClick"> 添加 </view>
+      <view>{{ env }}</view>
     </view>
     <view class="text-area">
       <view class="title-sass">使用全局的css变量-sass</view>
@@ -22,14 +23,10 @@ const title = ref("Hello Uni App");
 const useApp = useAppStore();
 const { count } = storeToRefs(useApp);
 const env = import.meta.env;
-console.log("env", env);
-loginApi({ account: "admin", password: "123456" })
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((err) => {
-    console.log(err, 1111111111111111111);
-  });
+// console.log("env", env);
+loginApi({ account: "admin", password: "123456" }).then((res) => {
+  console.log(res);
+});
 
 function onClick() {
   useApp.setCount(useApp.count + 1);

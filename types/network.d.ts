@@ -36,8 +36,6 @@ interface RequestConfig<D = any> {
 interface RequestOptions {
   // post请求的时候添加参数到url
   joinParamsToUrl?: boolean;
-  // 格式化提交参数时间
-  formatDate?: boolean;
   //是否对返回数据进行处理
   isTransformResponse?: boolean;
   // 是否需要原生的response

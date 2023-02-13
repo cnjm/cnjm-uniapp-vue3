@@ -62,8 +62,12 @@
 		"@dcloudio/vite-plugin-uni": "3.0.0-alpha-3060420220922001",
 		"@types/lodash-es": "^4.17.6",
 		"@types/node": "^18.7.23",
+		"mockjs": "^1.1.0",
 		"sass": "^1.55.0",
 		"typescript": "^4.8.3",
-		"vite": "^2.9.14"
+		"unocss": "^0.49.4",
+		"unocss-preset-weapp": "^0.4.1",
+		"vite": "^2.9.14",
+		"vite-plugin-mock": "^2.9.6"
 	}
 }

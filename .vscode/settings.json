@@ -1,0 +1,22 @@
+{
+  "cSpell.words": [
+    "alipay",
+    "Attributify",
+    "automator",
+    "dcloudio",
+    "ifdef",
+    "kuaishou",
+    "mockjs",
+    "pinia",
+    "quickapp",
+    "stacktracey",
+    "toutiao",
+    "uniapp",
+    "unocss",
+    "weapp",
+    "weixin"
+  ],
+  "files.associations": {
+    "*.json": "jsonc"
+  }
+}

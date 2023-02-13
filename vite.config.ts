@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import uni from "@dcloudio/vite-plugin-uni";
+import Unocss from 'unocss/vite'
 import { resolve } from "path";
 import pkg from "./package.json";
 function pathResolve(dir: string) {
@@ -12,7 +13,7 @@ const __APP_INFO__ = {
 };
 // https://vitejs.dev/config/
 export default defineConfig({
-	plugins: [uni()],
+	plugins: [uni(), Unocss()],
 	resolve: {
 		alias: [
 			{

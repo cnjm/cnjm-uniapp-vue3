@@ -68,6 +68,7 @@
 		"unocss": "^0.49.4",
 		"unocss-preset-weapp": "^0.4.1",
 		"vite": "^2.9.14",
-		"vite-plugin-mock": "^2.9.6"
+		"vite-plugin-mock": "^2.9.6",
+		"vite-plugin-vue-setup-extend": "^0.4.0"
 	}
 }

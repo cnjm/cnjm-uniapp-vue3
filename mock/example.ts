@@ -1,9 +1,10 @@
 import { MockMethod } from "vite-plugin-mock";
 export default [
   {
-    url: "/api/example/add",
+    url: "/mock/example/add",
     method: "post",
-    response: () => {
+    response: (rep) => {
+      console.log(rep);
       return {
         code: 20000,
         payload: null,
@@ -12,7 +13,7 @@ export default [
     },
   },
   {
-    url: "/api/example/list",
+    url: "/mock/example/list",
     method: "get",
     response: () => {
       return {
@@ -20,7 +21,11 @@ export default [
         payload: [
           {
             userId: 1,
-            userName: "微茫",
+            userName: "微茫1",
+          },
+          {
+            userId: 2,
+            userName: "微茫2",
           },
         ],
         message: "获取列表成功",

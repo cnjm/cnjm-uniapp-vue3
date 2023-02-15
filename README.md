@@ -1,6 +1,6 @@
 ## 项目依赖
 
-同 vite 可以在 package.json 中根据需要新增模式，比如 staging
+https://uno.antfu.me/
 
 ## 项目运行
 

@@ -2,8 +2,7 @@ import { UniRequest } from "./request";
 import { deepMerge } from "/@/utils/util";
 import { getAppEnvConfig } from "/@/utils/util/env";
 
-const { VITE_GLOB_API_URL, VITE_GLOB_API_PRE_FIX, VITE_TIMEOUT } =
-  getAppEnvConfig();
+const { VITE_GLOB_API_URL, VITE_GLOB_API_PRE_FIX, VITE_TIMEOUT } = getAppEnvConfig();
 function createRequest(config?: RequestConfig, options?: RequestOptions) {
   return new UniRequest(
     deepMerge(
@@ -16,7 +15,7 @@ function createRequest(config?: RequestConfig, options?: RequestOptions) {
         method: "none",
         timeout: VITE_TIMEOUT,
       },
-      config || {}
+      config || {},
     ),
     deepMerge(
       {
@@ -26,9 +25,10 @@ function createRequest(config?: RequestConfig, options?: RequestOptions) {
         errorMessageMode: "none",
         joinTime: true,
         withToken: true,
+        ident: true,
       },
-      options || {}
-    )
+      options || {},
+    ),
   );
 }
 // 默认导出的http请求

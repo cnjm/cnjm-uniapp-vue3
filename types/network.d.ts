@@ -3,10 +3,10 @@ type MethodMode = "GET" | "POST" | "PUT" | "DELETE";
 type RequestHeaders = Record<string, string | number | boolean>;
 
 interface RequestResult<T = any> {
-  code: number;
+  code: string;
   // type: "success" | "error" | "warning";
   message: string;
-  result: T;
+  payload: T;
 }
 
 interface RequestResponse<T = any> {
@@ -46,4 +46,5 @@ interface RequestOptions {
   joinTime?: boolean;
   // 是否带token
   withToken?: boolean;
+  ident?: boolean;
 }

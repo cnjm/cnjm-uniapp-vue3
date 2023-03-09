@@ -3,20 +3,50 @@
     "alipay",
     "Attributify",
     "automator",
+    "Bylast",
+    "commitlint",
     "dcloudio",
+    "easycom",
+    "Hbuider",
     "ifdef",
     "kuaishou",
+    "loadmore",
+    "Longpress",
     "mockjs",
+    "mutil",
+    "NODATA",
+    "nomore",
     "pinia",
     "quickapp",
     "stacktracey",
+    "tabbar",
     "toutiao",
     "uniapp",
     "unocss",
+    "unref",
+    "uview",
+    "Vetur",
     "weapp",
-    "weixin"
+    "wechat",
+    "weixin",
   ],
   "files.associations": {
     "*.json": "jsonc"
-  }
+  },
+  //配置eslint
+  "editor.formatOnSave": false,
+  // 添加vue支持
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "vue",
+    "html"
+  ],
+  // 保存后自动修复格式
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
 }

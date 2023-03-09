@@ -1,7 +1,7 @@
 import { cloneDeep } from "lodash-es";
-import { httpReg } from "/@/utils/util/regular";
-import { ResultStatusEnum, RequestEnum } from "/@/enums/network.enum";
-
+import { checkStatus } from "./checkStatus";
+import { requestInterceptors } from "./transform";
+import { ResultStatusEnum } from "/@/enums/network.enum";
 export class UniRequest {
   private readonly options: RequestOptions;
   private readonly config: RequestConfig;
@@ -19,54 +19,29 @@ export class UniRequest {
     return this.request({ ...config, method: "POST" }, options);
   }
 
-  request<T = any>(
-    config: RequestConfig,
-    options?: RequestOptions
-  ): Promise<T> {
-    const requestConfig: RequestConfig = Object.assign(
-      this.config,
-      cloneDeep(config)
-    );
-    const requestOptions: RequestOptions = Object.assign(
-      this.options,
-      cloneDeep(options)
-    );
+  async request<T = any>(config: RequestConfig, options?: RequestOptions): Promise<T> {
+    const requestConfig: RequestConfig = Object.assign(this.config, cloneDeep(config));
+    const requestOptions: RequestOptions = Object.assign(this.options, cloneDeep(options));
 
-    let {
-      baseURL = "",
-      urlPrefix = "",
-      url,
-      data,
+    const {
+      requestUrl,
+      params,
       header,
       method,
       timeout,
-    } = requestConfig;
-    const {
+      errorMessageMode,
       isReturnNativeResponse,
       isTransformResponse,
-      errorMessageMode,
-      joinTime,
-    } = requestOptions;
-    console.log(url, urlPrefix);
-    // 请求url
-    const requestUrl = httpReg.test(url)
-      ? url
-      : `${baseURL}${urlPrefix}${url}${
-          joinTime ? "?_t=" + new Date().getTime() : ""
-        }`;
-    console.log(requestUrl);
-    // 请求参数
-    let parma: any = data || {};
+    } = await requestInterceptors(requestConfig, requestOptions);
 
     return new Promise((resolve, reject) => {
       uni.request({
         url: requestUrl,
-        data: parma,
+        data: params,
         header,
         method,
         timeout,
         success: (res) => {
-          console.log(res);
           // 返回原生的response
           if (isReturnNativeResponse) {
             resolve(res as unknown as Promise<T>);
@@ -83,44 +58,16 @@ export class UniRequest {
             reject(new Error("请求出错，请稍候重试"));
           }
 
-          const { code, result, message } = data;
+          const { code, payload, message } = data;
 
           const hasSuccess = code && code === ResultStatusEnum.SUCCESS;
           // 请求成功 直接返回响应信息
           if (hasSuccess) {
-            resolve(result);
+            resolve(payload);
             return;
           }
 
-          let errMessage = "请求出错，请稍候重试";
-
-          // 以下都是错误处理
-          switch (code) {
-            case ResultStatusEnum.TIMEOUT:
-              errMessage = "登录超时，请重新登录";
-              break;
-            default:
-              if (message) {
-                errMessage = message;
-              }
-          }
-
-          // 提示处理
-          if (errorMessageMode === "toast") {
-            console.log(111);
-            uni.showToast({
-              title: errMessage,
-              icon: "none",
-              duration: 2000,
-            });
-          }
-          if (errorMessageMode === "modal") {
-            uni.showModal({
-              title: "提示",
-              content: errMessage,
-              showCancel: false,
-            });
-          }
+          checkStatus(code, message, errorMessageMode);
 
           reject(new Error("请求出错，请稍候重试"));
         },

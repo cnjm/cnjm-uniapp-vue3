@@ -1,3 +1,4 @@
 node_modules
-uni_modules
 dist
+uni_modules
+.eslintcache

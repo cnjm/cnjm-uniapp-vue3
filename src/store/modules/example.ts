@@ -10,7 +10,7 @@ interface ExampleState {
   obj: UserInfo;
 }
 
-export const useExampleState = defineStore({
+export const useExampleStore = defineStore({
   id: "example",
   state: (): ExampleState => ({
     count: 1,
@@ -27,7 +27,6 @@ export const useExampleState = defineStore({
   },
   actions: {
     setCount(count: number) {
-      console.log(count);
       this.count = count;
     },
   },

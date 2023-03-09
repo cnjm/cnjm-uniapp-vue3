@@ -1,5 +1,6 @@
+import type { VNode } from "vue";
 declare global {
-  const __APP_INFO__: {
+  export const __APP_INFO__: {
     pkg: {
       name: string;
       version: string;
@@ -8,4 +9,13 @@ declare global {
     };
     lastBuildTime: string;
   };
+
+  declare interface ChooseFile {
+    files:
+      | UniApp.ChooseImageSuccessCallbackResultFile
+      | UniApp.ChooseImageSuccessCallbackResultFile[]
+      | File
+      | File[];
+    filePaths: string | string[];
+  }
 }

@@ -3,14 +3,7 @@
     {
       "path": "pages/home/index",
       "style": {
-        "navigationBarTitleText": "首页"
-      }
-    },
-    {
-      "path": "pages/mine/index",
-      "style": {
-        "navigationBarTitleText": "我的",
-        "enablePullDownRefresh": false
+        "navigationBarTitleText": "我的小程序"
       }
     },
     {
@@ -30,11 +23,17 @@
   ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uni-app",
+    "navigationBarTitleText": "uniapp",
     "navigationBarBackgroundColor": "#FFFFFF",
     "backgroundColor": "#FFFFFF",
     // #ifdef H5
     "navigationStyle": "custom"
     // #endif
+  },
+  "easycom": {
+    "custom": {
+      "^u-(.*)": "vk-uview-ui/components/u-$1/u-$1.vue",
+      "^dmc-(.*)": "@/components/dmc/dmc-$1/dmc-$1.vue"
+    }
   }
 }

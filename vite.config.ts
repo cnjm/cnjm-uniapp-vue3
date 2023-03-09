@@ -2,9 +2,9 @@ import { defineConfig } from "vite";
 import uni from "@dcloudio/vite-plugin-uni";
 import Unocss from "unocss/vite";
 import vueSetupExtend from "vite-plugin-vue-setup-extend";
+import { viteMockServe } from "vite-plugin-mock";
 import { resolve } from "path";
 import pkg from "./package.json";
-import { viteMockServe } from "vite-plugin-mock";
 function pathResolve(dir: string) {
   return resolve(process.cwd(), ".", dir);
 }

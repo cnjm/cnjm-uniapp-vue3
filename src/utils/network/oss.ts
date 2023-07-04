@@ -12,7 +12,7 @@ interface Sts {
 
 const { VITE_GLOB_BUCKET_NAME } = getAppEnvConfig();
 
-const STS_URL = `https://tools.dm-cube.com/aliyun/acs/token?bucketName=${VITE_GLOB_BUCKET_NAME}`;
+const STS_URL = `https://test.com/aliyun/acs/token?bucketName=${VITE_GLOB_BUCKET_NAME}`;
 const URL = `https://${VITE_GLOB_BUCKET_NAME}.oss-cn-beijing.aliyuncs.com`;
 
 /**
